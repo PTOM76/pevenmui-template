@@ -1,40 +1,45 @@
 # PevenMUI Template App
+PevenMUI Template Appは、[PevenMUI](https://github.com/PTOM76/pevenmui) を使ったWebアプリのひな形である。
 
-[PevenMUI](https://github.com/PTOM76/pevenmui) を使ったアプリのひな形。PC ではデスクトップアプリ、スマホでは Android のアプリに近い操作感になる。
+## できること
+| 分類 | 機能 |
+| --- | --- |
+| 画面 | メニューバー（PC）、⋮ メニュー（スマホ）、ステータスバー（PC） |
+| 設定 | 言語、テーマ、画面の大きさ。localStorage に保存 |
+| 言語 | 英語、日本語 |
+| その他 | このアプリについて、ライセンスの一覧、ビルド時に名前と版を index.html と version.json へ反映 |
 
-含まれるもの:
+## 技術スタック
+| 項目 | 内容 |
+| --- | --- |
+| 画面 | React + TypeScript + MUI（[PevenMUI](https://github.com/PTOM76/pevenmui)、Vite） |
 
-- メニューバー（PC）と ⋮ メニュー（スマホ）、PC のステータスバー
-- 設定画面（言語、テーマ、画面の大きさ）。設定は localStorage に保存する
-- 多言語化（英語と日本語）
-- 「このアプリについて」とライセンスの一覧
-- ビルド時に、名前、言語、版を index.html と version.json に入れる
-
-## 始め方
-
-```sh
-git clone https://github.com/PTOM76/pevenmui-template-app myapp
+## セットアップ
+```bash
+git clone https://github.com/PTOM76/pevenmui-template-app.git myapp
 cd myapp
 git submodule add https://github.com/PTOM76/pevenmui.git pevenmui
 npm install
 npm run dev
 ```
 
-PevenMUI はソースのまま読み込む。場所は `PEVENMUI_PATH`、親のフォルダー（PevenMUI の中の `template-app/` として開発するとき）、`./pevenmui` の順に探す。
+`pevenmui/` は submodule。ソースのまま読み込む。
+場所は `PEVENMUI_PATH`、親のフォルダー（PevenMUI の中の `template-app/` として開発するとき）、`./pevenmui` の順に探す。
 
-## 最初に変える所
+## コードの場所
+- 画面: `src/`
+  - 組み立ては `src/App.tsx`、設定画面は `src/SettingsDialog.tsx`
+  - アプリの定義（id、名前、URL、既定の言語）: `src/appInfo.ts`
+  - 設定: `src/settings.ts`
+  - 言語ファイル: `src/lang/`（キーは `en_us.json` が正。言語を足すときは `src/i18n.ts` にも足す）
+- アイコン: `public/icon.svg`
 
-| ファイル | 内容 |
-| --- | --- |
-| `src/appInfo.ts` | アプリの id、名前、説明、作者、URL、既定の言語。id は保存のキーの接頭辞になるので、公開したあとは変えない |
-| `package.json` | `name` と `version`（版は「このアプリについて」に表示される） |
-| `public/icon.svg` | アイコン |
-| `src/lang/*.json` | 訳文。キーは `en_us.json` が正 |
-| `src/App.tsx` | 画面 |
-
-言語を足すときは `src/lang/` に JSON（例: `fr_fr.json`）を置き、`src/i18n.ts` の import と `messages` に足す。設定の言語の選択肢には自動で並ぶ。
+`src/appInfo.ts` の id は保存のキーの接頭辞になるため、公開したあとは変えない。
 
 ## License
+This template is dedicated to the public domain under CC0 1.0.
 
-このテンプレートは [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)（パブリックドメイン）。作ったアプリのライセンスは自由に決めてよい。
-依存しているライブラリ（PevenMUI、React、MUI、Font Awesome など）は、それぞれのライセンスに従う。
+Third-party software:
+- PevenMUI、React、MUI — MIT
+- Font Awesome Free — CC BY 4.0 / MIT
+- Roboto — OFL-1.1
