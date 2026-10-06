@@ -31,10 +31,10 @@ npm run dev
   - 組み立ては `src/App.tsx`、設定画面は `src/SettingsDialog.tsx`
   - アプリの定義（id、名前、URL、既定の言語）: `src/appInfo.ts`
   - 設定: `src/settings.ts`
-  - 言語ファイル: `src/lang/`（キーは `en_us.json` が正。言語を足すときは `src/i18n.ts` にも足す）
+  - 言語ファイル: `src/lang/`（キーは `en_us.json` が正。言語を追加するときは `src/i18n.ts` にも追加する）
 - アイコン: `public/icon.svg`
 
-`src/appInfo.ts` の id は保存のキーの接頭辞になるため、公開したあとは変えない。
+`src/appInfo.ts` の id は保存のキーの接頭辞になるため、公開したあとは変更しない。
 
 ## License
 This template is dedicated to the public domain under CC0 1.0.
