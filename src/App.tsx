@@ -96,7 +96,7 @@ export default function App(p: { settings: Settings; onSettingsChange: (patch: P
           [t('about.version'), <span className="selectable">{BUILD}</span>],
           [t('about.author'), app.author],
           [
-            'GitHub',
+            'ソースコード',
             <Link className="selectable" href={app.repository} target="_blank" rel="noopener noreferrer">
               {app.repository.replace('https://', '')}
             </Link>,
